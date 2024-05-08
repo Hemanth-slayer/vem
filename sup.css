@@ -1,0 +1,60 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 0 20px;
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  padding: 10px 20px; /* Updated padding */
+}
+
+.navbar a:hover {
+  color: #4b8bec;
+}
+
+.music {
+  height: 90vh;
+  background: url('https://img.freepik.com/free-vector/gradient-beautiful-landscape_23-2149122376.jpg?w=996&t=st=1715166709~exp=1715167309~hmac=a6820c1a615141739bd3c2a703fc54a4bc104217f7bc126ae7aaa6850053a9e3')no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.music h1 {
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+
+.music p {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.music button {
+  padding: 10px 30px;
+  font-size: 16px;
+  color: white;
+  background-color: #4b8bec;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.music button:hover {
+  background-color: #333;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+}
