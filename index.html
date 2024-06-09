@@ -1,32 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="Stylesheet" href="Stylesheet.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Search | Music</title>
-   <script src="index.js"> </script>
+    <title>Emotion Based Music Recommendation System</title>
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Pixelify+Sans:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome icons CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-k6RqeWecC7o1e8wBbU4CF0P2TY1IK5UbI+U5bUaaepId/IP0MD5VMO8dRJP8ajL0" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
 
-    <nav class="navbar">
-        <a href="#">Music</a>
-        <div>
-            <a href="#Dashboard">Dashboard</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+    <!----- Landing sheet ----->
+    <header class="header" data-aos-delay="900" data-aos="fade-in">
+        <div class="topnav">
+            <ul>
+                <li class="list"><a class="active" href="#home">Home</a></li>
+                <li class="list"><a class="active" href="#about">About</a></li>
+                <li class="list"><a class="active" href="#"><i class="fa-solid fa-cloud-arrow-down fa-sm" style="color: #ffffff;"></i>Guide</a></li>
+                <li class="dev-btn">
+                    <i class="fa-solid fa-sort-down fa-2xl" style="color: #ffffff;"></i>
+                    <h1>Devs</h1>
+                    <ul class="dropdown">
+                        <li><a href="https://github.com/Prathik736" target="_blank"><i
+                                    class="fa-brands fa-github"></i>Prathik</a></li>
+                        <li><a href="https://github.com/GunaAsher" target="_blank"><i
+                                    class="fa-brands fa-github"></i>Guna</a></li>
+                        <li><a href="https://github.com/Hemanth-slayer" target="_blank"><i
+                                    class="fa-brands fa-github"></i>Hemanth</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-    </nav>
-    
-    <div class="music">
-        <h1>Welcome to Music</h1>
-        <p>Discover music with just a smile</p>
-        <button>Try it now</button>
-    </div> 
-      
-    <div class="footer">
-        <p>© 2024  Music Search. All rights reserved.</p>
+        <section class="title">
+            <h1>Emotion Based Music Recommendation System</h1><br>
+            <hr><br><br><br><br>
+            <p class="subtitle">Discover music that resonates with your emotions...</p><br><br><br><br><br>
+            <a href="#about">
+            <button type="button" class="btn">Learn More</button>
+        </a>
+        </section>
+        <i class="fa-solid fa-angles-down fa-xl" style="color: #ffffff;"></i>
+    </header>
+
+    <!----- First main(About sheet)  ----->
+    <div class="first-main" id="about">
+        <h1 data-aos="fade-up" data-aos-delay="100" data-aos-easing="ease-in-out">About</h1>
+        <div class="abt-sec" data-aos="slide-up" data-aos-delay="400" data-aos-easing="ease-in-out">
+            <section class="text">
+                <p><i>"<strong>Emotion-based music recommendation</strong> systems are innovative approaches that
+                        personalize music recommendations based on users’ emotional states."</i></hp>
+            </section>
+            <section class="text2">
+                <video width="720" height="740" autoplay loop>
+                    <source src="https://videos.pexels.com/video-files/18069233/18069233-hd_1080_1920_24fps.mp4"
+                        type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </section>
+        </div>
     </div>
-    
+
+    <!-------- Project sheet  -->
+    <video id="background-video" autoplay loop muted>
+        <source src="https://videos.pexels.com/video-files/854323/854323-hd_1280_720_25fps.mp4" type="video/mp4">
+      </video>
+      
+    <main class="container" id="project">
+        <section class="language-select">
+            <h2>Choose Your Language</h2>
+            <form action="/select_language" method="post">
+                <select id="language" name="language">
+                    <option value="Kannada">Kannada</option>
+                    <option value="Tamil">Tamil</option>
+                    <option value="English">English</option>
+                </select>
+                    <button class="btn-submit">Submit</button>
+            </form>
+        </section>
+        <section class="video-feed animate">
+            <img src="{{ url_for('video_feed') }}" width="640" height="480" alt="Video Feed">
+        </section>
+    </main>
+
+
+    <!------ Footer  -->
+    <footer class="footer">
+        <p>&copy; 2023 Emotion Based Music Recommendation System</p>
+    </footer>
+
+    <!-------- javascript -------->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 </body>
 </html>
