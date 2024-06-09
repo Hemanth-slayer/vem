@@ -1,60 +1,367 @@
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #333;
-  color: white;
-  padding: 0 20px;
-}
-.navbar a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-  padding: 10px 20px; /* Updated padding */
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
 
-.navbar a:hover {
-  color: #4b8bec;
+@keyframes writeText {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
 }
 
-.music {
-  height: 90vh;
-  background: url('https://img.freepik.com/free-vector/gradient-beautiful-landscape_23-2149122376.jpg?w=996&t=st=1715166709~exp=1715167309~hmac=a6820c1a615141739bd3c2a703fc54a4bc104217f7bc126ae7aaa6850053a9e3')no-repeat center center/cover;
+@keyframes zoomout {
+  0% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/*  Sass Variables  */
+:root {
+  --darkblue: #003135;
+  --darkgreen: #024950;
+  --orange: #964734;
+  --lightblue: #0fa4af;
+  --lowblue: #afdde5;
+}
+
+/* gENERAL CSS*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100vw;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  color: #333;
+  background-color: var(--darkblue);
+  scroll-behavior: smooth;
+}
+
+.header {
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1)), url(https://lh3.googleusercontent.com/pw/AP1GczPi-E07K2LnUB8Lp0hhHiHsRD92FzMGhKC0d271g78akaF-az1r8VHLMFxe1EEBFZeOeZAWqz6E3p10FBS0iXltE-iSNLfsmKAH5skt1Bwjo1-3MMK3vcFPxeyZIoiqhQ7tZRSfWbV6XcaazQjJGjCkBg=w1344-h768-s-no-gm?authuser=0);
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  animation: zoomout 1s ease backwards;
+}
+
+.title {
+  max-width: 48vw;
+  height: 70vh;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #fff;
+  border-radius: 15px;
+  padding: 8vh;
+  margin: 5vh;
+  margin-top: 0;
+  margin-bottom: 0;
+  backdrop-filter: blur(50px);
+  box-shadow: #333;
+  animation: zoomIn 1s ease forwards;
+}
+
+.title>h1 {
+  font-weight: bold;
+  color: var(--lightblue);
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 3.5em;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black, 0 0 25px var(--darkgreen), 0 0 5px var(--darkblue);
+}
+
+.title>p {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: writeText 10s steps(200) forwards infinite;
+}
+
+.topnav {
+  max-width: 100vw;
+  padding: 4vh;
+  padding-bottom: 3vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+}
+
+.topnav>ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 1vw;
+  display: flex;
+}
+
+.topnav>ul>li>a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 5vh;
+}
+
+.topnav>ul>li>a:hover {
+  text-decoration: underline;
+  color: var(--lightblue);
+}
+
+.dev-btn {
+  display: flex;
+  margin-left: 40vw;
   align-items: center;
-  color: white;
-  text-align: center;
+  cursor: pointer;
+  background-color: #00313569;
+  padding: 0.5vh 3vh;
+  border-style: solid;
+  border-width: 0.2vw;
+  border-color: #FFF;
 }
 
-.music h1 {
-  font-size: 48px;
-  margin-bottom: 8px;
+.dev-btn:hover {
+  background-color: #67237369;
 }
 
-.music p {
-  font-size: 24px;
-  margin-bottom: 16px;
+.dev-btn svg {
+  margin-right: 5px;
 }
 
-.music button {
-  padding: 10px 30px;
-  font-size: 16px;
-  color: white;
-  background-color: #4b8bec;
-  border: none;
+.dev-btn h1 {
+  color: #FFF;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 225px;
+  top: 112px;
+  border-radius: 15px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.dropdown li {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.dropdown li:hover {
+  opacity: 0.5;
+}
+
+.dropdown li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.5em;
+  ;
+}
+
+.dev-btn:hover .dropdown {
+  display: block;
+}
+
+.fa-github{
+  margin-right: 1vw;
+}
+.fa-cloud-arrow-down{
+  margin-right: 0.5vw;
+
+}
+
+.fa-angles-down {
+  position: absolute;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: float 3s infinite;
+  background-color: var(--lightblue);
+  box-shadow: 5px 10px 30px #ff00bb;
+}
+
+.fa-sort-down {
+  margin-bottom: 0.5vh;
+  margin-right: 0.8vw;
+  animation: float 3s infinite;
+}
+
+
+/*  Try now button  */
+.btn {
+  width: 35vw;
+  background-color: white;
   border-radius: 5px;
+  font-weight: bold;
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 2rem;
+  color: darkslategrey;
+  padding: 20px;
+  margin-top: 6vh;
+  margin-right: vw;
+  text-align: center;
   cursor: pointer;
 }
 
-.music button:hover {
-  background-color: #333;
+.btn:hover {
+  background-color: #ffffff;
+  box-shadow: 0px 0px 200px var(--lightblue);
+  border-width: 3px;
 }
 
-.footer {
-  background-color: #333;
-  color: white;
+/*------------------ fIRST Sheet   ----------------*/
+.first-main {
+  max-width: 100vw;
+  height: 100vh;
+  background-color: whitesmoke;
+  background-attachment: fixed;
+  border-radius: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.first-main {
+  padding: 2vw;
+}
+
+.first-main h1 {
+  font-size: 5em;
+  font-variation-settings: 'wght' 50;
+  font-family: 'Pixelify Sans', sans-serif;
+}
+
+.abt-sec {
+  display: flex;
+}
+
+.text{
+  border-style: solid;
+  border-width: 0;
+  width: 45vw;
+  height: 75vh;
+  justify-content: space-between;
+}
+.text{
+  padding: 5vw;
+}
+.text2{
+  padding: 0vw;
+  border-style: solid;
+  border-width: 0;
+  width: 10vw;
+  height: 75vh;
+  justify-content: space-around;
+}
+.text>p {
+  font-size: 2.3em;
+  border-left-width: 30vw;
+}
+video{
+  box-shadow: 10px 00px 100px #003135;
+}
+
+/* pROJECT sHEET */
+main.container {
+  max-width: 70vw;
+  height: 100vh;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-image: url("https://static.videezy.com/system/resources/previews/000/045/424/original/Cyber-City.mp4");
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+section.language-select{
   text-align: center;
-  padding: 5px 0;
+  margin-bottom: 1rem;
+}
+.language-select > h2{
+  color: whitesmoke;
+  text-shadow:2px 2px #003135;
+  font-size: 3em;
+  font-family: 'Pixelify Sans', sans-serif;
+}
+
+select {
+  width: 20vw;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+button.btn-submit {
+  background-color: #333;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;/
+}
+
+button.btn-submit:hover {
+  background-color: #444;
+}
+
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+/*    fOOTER   */
+footer.footer {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+footer.footer p {
+  padding: 1rem 0;
+  background-color: #333;
+  color: #fff;
+  margin-top: 2rem;
 }
